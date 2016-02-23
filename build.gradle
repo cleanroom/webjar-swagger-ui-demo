@@ -1,6 +1,12 @@
 apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'jetty'
+apply from: 'gretty.plugin'
+
+gretty {
+    // Possible servletContainer values are 'jetty7', 'jetty8', 'jetty9', 'tomcat7', 'tomcat8'. Default is 'jetty9'.
+    servletContainer = 'jetty9'
+    // httpsEnabled = true
+    contextPath = "/"
+}
 
 repositories {
     mavenCentral()
@@ -8,17 +14,7 @@ repositories {
 
 dependencies {
     compile(
-            'org.webjars:bootstrap:2.2.1',
-            'org.webjars:swagger-ui:2.0.12',
-            'org.webjars:webjars-servlet-2.x:1.3'
+            'io.swagger:swagger-jersey2-jaxrs:1.5.0',
+            'org.webjars:swagger-ui:2.1.4'
     )
-}
-
-task showClasspath << {
-    buildscript.configurations.classpath.each { println it.name }
-}
-
-
-task showVersion << {
-    println buildscript.configurations.classpath.resolvedConfiguration.firstLevelModuleDependencies.moduleVersion
 }

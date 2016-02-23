@@ -1,22 +1,18 @@
 how to run
 ============
 
-`gradle jettyRun`
+`gradle clean appRun`
 
-Then you can visit:
+Then you can visit: `http://localhost:8080/webjars/swagger-ui/2.1.4/`
 
-1. Swagger-UI: `http://localhost:8080/webjar-swagger-ui-demo/webjars/swagger-ui/2.0.12/index.html`
-2. Bootstrap things: `http://localhost:8080/webjar-swagger-ui-demo/webjars/bootstrap/2.2.1/css/bootstrap.min.css`   
-3. Transitive jquery: `http://localhost:8080/webjar-swagger-ui-demo/webjars/jquery/1.8.2/jquery.js`
+Then you can pass any swagger api description file like `http://petstore.swagger.io/v2/swagger.json` to the input field and view and try it. 
 
-# webjar with servlet 2
+Note
+=====
 
-`webjar` is supported directly in servlet 3, but not in servlet 2. 
-
-If you are using a servlet server which is not support with servlet 3, you have to use the `org.webjars:webjars-servlet-2.x:1.3` to make it work, as `web.xml` in this example does.
+We should use a server container which supports servlet 3.x in order to support webjar directly.
 
 # Reference
 
 1. Java project skeleton: 
 http://www.jeroenreijn.com/2012/11/hippo-cms-servlet-3-and-webjars.html
-2. https://github.com/webjars/webjars-servlet-2.x
